@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension  point="org.eclipse.ui.actionSets"> 
+      	<actionSet 
+      	label="SwitchRefactor Action Set" 
+      	visible="true" id="switchrefactor.actionSet"> 
+            <menu label="Refactor" path="source" 
+            id="org.eclipse.jdt.ui.refactoring.menu"> 
+            <separator name="reorgGroup"/> 
+         	</menu> 
+         	<action class="switchrefactor.actions.SwitchRefactorActions" 
+         		icon="icons/sample2.png"
+               	id="switchrefactor.actions.SwitchRefactorActions"
+               	label="SwitchRefactor"
+               	menubarPath="org.eclipse.jdt.ui.refactoring.menu/MyGroup"
+               	toolbarPath="MyGroup"
+               	tooltip="Switch Refactor">
+            </action>
+            <action 
+         		class="switchrefactor.actions.SwitchRefactorActions" 
+         		icon="icons/sample.png"
+               	id="switchrefactor.actions.Break"
+               	label="BreakMiss"
+               	menubarPath="org.eclipse.jdt.ui.refactoring.menu/MyGroup"
+               	tooltip="BreakMiss"> 
+      		</action>
+      		<action 
+         		class="switchrefactor.actions.SwitchRefactorActions" 
+         		icon="icons/sample.png"
+               	id="switchrefactor.actions.Default"
+               	label="DefaultMiss"
+               	menubarPath="org.eclipse.jdt.ui.refactoring.menu/MyGroup"
+               	tooltip="DefaultMiss"> 
+      		</action>
+      		<action 
+         		class="switchrefactor.actions.SwitchRefactorActions" 
+         		icon="icons/sample.png"
+               	id="switchrefactor.actions.Branch"
+               	label="BranchMiss"
+               	menubarPath="org.eclipse.jdt.ui.refactoring.menu/MyGroup"
+               	tooltip="BranchMiss"> 
+      		</action>
+      		<action 
+         		class="switchrefactor.actions.SwitchRefactorActions" 
+         		icon="icons/sample.png"
+               	id="switchrefactor.actions.CaseDefault"
+               	label="Case-Default"
+               	menubarPath="org.eclipse.jdt.ui.refactoring.menu/MyGroup"
+               	tooltip="Case-Default"> 
+      		</action>
+      		<action 
+         		class="switchrefactor.actions.SwitchRefactorActions" 
+         		icon="icons/sample.png"
+               	id="switchrefactor.actions.Information"
+               	label="Information"
+               	menubarPath="org.eclipse.jdt.ui.refactoring.menu/MyGroup"
+               	tooltip="Information"> 
+      		</action>
+      	</actionSet> 
+   	</extension>
+   	<extension point = "org.eclipse.ui.views">
+		<category name = "Switch Refactoring" id = "SwitchViews" > </category>
+		<view
+			name = "Information"
+			icon="icons/sample.png"
+			category = "addannotation"
+			class = "switchrefactor.views.DataView"
+			id = "switchrefactor.DataView">
+		</view>
+		<view
+			name = "Break"
+			icon="icons/sample.png"
+			category = "addannotation"
+			class = "switchrefactor.views.BreakView"
+			id = "switchrefactor.BreakView">
+		</view>
+		<view
+			name = "Default"
+			icon="icons/sample.png"
+			category = "addannotation"
+			class = "switchrefactor.views.DefaultView"
+			id = "switchrefactor.DefaultView">
+		</view>
+		<view
+			name = "Branch"
+			icon="icons/sample.png"
+			category = "addannotation"
+			class = "switchrefactor.views.BranchView"
+			id = "switchrefactor.BranchView">
+		</view>
+		<view
+			name = "Case-Default"
+			icon="icons/sample.png"
+			category = "addannotation"
+			class = "switchrefactor.views.CaseDefaultView"
+			id = "switchrefactor.CaseDefaultView">
+		</view>
+	</extension>
+	
+	<extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="org.eclipse.jdt.core.IJavaElement"
+            id="popupmenu">
+         <menu
+               label="Switch Refactor"
+               path="additions"
+               icon="icons/sample2.png"
+               id="com.popmenu.extend.menu1">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               label="Switch Refactor"
+               class="switchrefactor.actions.SwitchRefactorMenu"
+               icon="icons/sample2.png"
+               menubarPath="com.popmenu.extend.menu1/group1"
+               enablesFor="1"
+               id="switchrefactor.actions.SwitchRefactorMenu">
+         </action>
+         <action 
+         		class="switchrefactor.actions.SwitchRefactorMenu" 
+         		icon="icons/sample.png"
+               	id="switchrefactor.actions.break"
+               	label="BreakMiss"
+               	menubarPath="com.popmenu.extend.menu1/group1"
+                enablesFor="2"> 
+      		</action>
+      		<action 
+         		class="switchrefactor.actions.SwitchRefactorMenu" 
+         		icon="icons/sample.png"
+               	id="switchrefactor.actions.default"
+               	label="DefaultMiss"
+               	menubarPath="com.popmenu.extend.menu1/group1"
+               	enablesFor="3"> 
+      		</action>
+      		<action 
+         		class="switchrefactor.actions.SwitchRefactorMenu" 
+         		icon="icons/sample.png"
+               	id="switchrefactor.actions.branch"
+               	label="BranchMiss"
+               	menubarPath="com.popmenu.extend.menu1/group1"
+                enablesFor="4"> 
+      		</action>
+      		<action 
+         		class="switchrefactor.actions.SwitchRefactorMenu" 
+         		icon="icons/sample.png"
+               	id="switchrefactor.actions.CaseDefault"
+               	label="Case-Default"
+               	menubarPath="com.popmenu.extend.menu1/group1"
+                enablesFor="5"> 
+      		</action>
+      		<action 
+         		class="switchrefactor.actions.SwitchRefactorMenu" 
+         		icon="icons/sample.png"
+               	id="switchrefactor.actions.information"
+               	label="Information"
+               	menubarPath="com.popmenu.extend.menu1/group1"
+               	enablesFor="6"> 
+      		</action>
+      </objectContribution>
+      <viewerContribution
+         targetID="#CompilationUnitEditorContext"
+         id="Refactorings.EditorContribution">
+         <menu
+               label="SwitchRefactoring"
+               path="additions"
+               id="switchRefactor.menu2">
+            <separator
+                  name="atomics">
+            </separator>
+         </menu>
+         <action
+             label="SwitchRefacor (Selected)"
+             class="switchrefactor.actions.SwitchRefactorText"
+             menubarPath="switchRefactor.menu2/atomics"
+             enablesFor="+"
+             id="mLocal.ID">
+             <selection
+                 class="org.eclipse.jface.text.ITextSelection">
+             </selection>
+         </action>
+      </viewerContribution>
+   </extension>
+</plugin>
